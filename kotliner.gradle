@@ -1,0 +1,10 @@
+apply plugin: 'org.jmailen.kotlinter'
+
+kotlinter { disabledRules = ["no-wildcard-imports", "final-newline", "import-ordering"] }
+
+// Kotlinter will run before each build
+tasks.whenTaskAdded { Task task ->
+    if (task.name == 'preBuild' || task.name == 'lint') {
+        task.dependsOn 'lintKotlin'
+    }
+}

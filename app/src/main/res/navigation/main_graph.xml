@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userListScreen">
+
+    <fragment
+        android:id="@+id/userListScreen"
+        android:name="com.divinkas.app.productmanager.ui.screen.main.UserListScreen"
+        android:label="@string/user_list"
+        tools:layout="@layout/screen_user_list">
+        <action
+            android:id="@+id/toUserDetailScreen"
+            app:destination="@id/userDetailScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDetailScreen"
+        android:name="com.divinkas.app.productmanager.ui.screen.detail.UserDetailScreen"
+        android:label="@string/user_detail"
+        tools:layout="@layout/screen_user_detail">
+
+        <argument
+            android:name="user"
+            android:defaultValue="@null"
+            app:argType="com.divinkas.app.productmanager.bean.backend.User"
+            app:nullable="true" />
+    </fragment>
+</navigation>
